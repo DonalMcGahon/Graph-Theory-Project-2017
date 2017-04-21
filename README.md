@@ -56,3 +56,31 @@ This line of code uploaded using headers, the SoftwareGroup section to Neo4j as 
 `LOAD CSV WITH headers from "file:///Timetable.csv" as timetable create (a:Rooms {Rooms: timetable.Rooms })`
 
 I learned how to do this from reseaching and using the following link as a guide - [Importing CSV to Neo4j]( https://neo4j.com/docs/developer-manual/current/get-started/cypher/importing-csv-files-with-cypher/)
+
+
+## Nodes
+When I uploaded the CSV file as shown above, this created the nodes for me. The nodes that I used are as followes:
+* SubjectGroup - The subject and the group associated with that subject e.g Group A
+* Begin - The day and time
+* Rooms - The room number
+* Staff - Name of Lecturer
+
+## Relationships
+The relationships I used in this project are as follows:
+* Attends
+* Lecturing
+* Room_For
+
+To create these relationships I used the following command:
+
+`LOAD CSV WITH headers from "file:///Timetable.csv" as timetable match (a:SubjectGroup {SubjectGroup: timetable.SubjectGroup}), (b:Begin {Begin: timetable.Begin}) CREATE (a) - [r:Attends]-> (b)`
+
+This created a relationship between SubjectGroup and Begin. SubjectGroup Attends Begin.
+
+`LOAD CSV WITH headers from "file:///Timetable.csv" as timetable match (a:Staff {Staff: timetable.Staff}), (b:Begin {Begin: timetable.Begin}) CREATE (a) - [r:Lecturing]-> (b)`
+
+This created a relationship between Staff and Begin. Staff Lecturing at Begin.
+
+`LOAD CSV WITH headers from "file:///Timetable.csv" as timetable match (a:Rooms {Rooms: timetable.Rooms}), (b:Begin {Begin: timetable.Begin}) CREATE (a) - [r:Room_For]-> (b)`
+
+This created a relationship between Rooms and Begin. Rooms has Rooms_For Begin.
