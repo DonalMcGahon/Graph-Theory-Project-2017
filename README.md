@@ -111,3 +111,10 @@ This created a relationship between Rooms and Begin. Rooms has Rooms_For Begin.
 
 ## Conclusion
 Throughout the process of working with Neo4j and creating the Timetable database I learned a lot. I learned how to use Neo4j efficiently and learned many useful Cypher queries that I will be able to use again. Uploading a CSV file to Neo4j was a learning curve for me as I learnt how comma delimited files are used and how to use them to your advantage while working with Neo4j. I enjoyed using Neo4j as being able to see your database visually in front of you in a graph style made working on it easier. I feel I learned how to plan projects better after working with Neo4j because for each step in making the Neo4j database I was always thinking of my next step. I feel graph databases like Neo4j will become increasingly popular in the coming years because they are enjoyable to use and are visually easy to understand.
+
+## References
+* Lecturer PDF notes
+* https://neo4j.com/
+* https://neo4j.com/developer/guide-import-csv/
+* http://timetable.gmit.ie/sws1617/(S(2dls2h552rxryjzjgw1znh55))/default.aspx
+* https://neo4j.com/docs/developer-manual/current/get-started/cypher/importing-csv-files-with-cypher/
