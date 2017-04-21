@@ -84,3 +84,11 @@ This created a relationship between Staff and Begin. Staff Lecturing at Begin.
 `LOAD CSV WITH headers from "file:///Timetable.csv" as timetable match (a:Rooms {Rooms: timetable.Rooms}), (b:Begin {Begin: timetable.Begin}) CREATE (a) - [r:Room_For]-> (b)`
 
 This created a relationship between Rooms and Begin. Rooms has Rooms_For Begin.
+
+## Design
+* Below is the design I used for my Neo4j Timetable. I based everything around the time.
+* So at a certain time slot e.g Monday 12:00, I have a Node Room e.g PF05, with the realtionship Room_for with Begin. This would mean PF05 will be available for the time slot Monday 12:00.
+* For that same time slot I have a lecturer e.g Ian McLoughlin, with the relationship lecturing with Begin. This would mean this lecturer is to be at PF05 at 12:00.
+* Also for that same time slot I have a Node SubjectGroup for example KSOFG73 GRAPH THEORY Gr A/P, with the relationship Attends with Begin. This means KSOFG73 GRAPH THEORY Gr A/P are to attend PF05 with the lecturer Ian McLoughlin at 12:00.
+
+![image](https://cloud.githubusercontent.com/assets/14197773/25279749/6481db80-269f-11e7-96d4-e41ad3ba8bf4.png)
