@@ -11,11 +11,10 @@
 
 1. Introduction
 1. What is Neo4j
+1. What is Cypher
 1. Creating the Database Using CSV File
 1. Nodes
 1. Relationships
-1. Labels
-1. Properties
 1. Design
 1. Conclusion
 
@@ -37,6 +36,22 @@ It provides a server and Domain Specific Language (DSL) called Cypher that you u
 1. Relationships - Is a connection between Data which can be mapped between two nodes e.g. He "Knows" her.
 
 1. Properties - These are basically tags that can be attached to both Nodes and Relationships e.g. Node Person can have properties like Name, Age, Height.
+
+## What is Cypher
+Cypher is a declarative graph query language that allows for expressive and efficient querying and updating of the graph store. Cypher is a relatively simple but still very powerful language. Very complicated database queries can easily be expressed through Cypher
+
+A simple example of a Cypher command is as follows:
+
+`MATCH (n) RETURN n`
+
+What this does is looks for all the nodes inside the database and returns them. You will then be able to visually see all the nodes in the database.
+
+A more complex Cypher query could be as follows:
+
+`MATCH (sean {name: 'Sean'})-[:friend]->()-[:friend]->(fof)
+RETURN sean.name, fof.name`
+
+What this Cypher query does is it finds a user called 'Sean' and 'Sean’s' friends, returning both 'John' and any friends-of-friends that are found in the database.
 
 ## Creating Database using CSV file
 At the beginning of my project I was unsure as to how I was going to get the information I was going to use for my database. I read up on Neo4j on websites such as [Neo4j](https://neo4j.com/) and found a page on their webside about using CSV files [Neo4j CSV](https://neo4j.com/developer/guide-import-csv/). You are able to upload files containing a large amount of data such as a CSV file to Neo4j. The information I needed for my project was on the [GMIT Timetable page](http://timetable.gmit.ie/sws1617/(S(2dls2h552rxryjzjgw1znh55))/default.aspx). I got the information for my timetable on this website and I copied it into an excel file. I then saved that file as a CSV (Comma delimited) file, which caused the file to be put into row that are separated by commas. Some of the rows inside of the timetable I did not need for my project for example row Type. When finishing editing the file it looked like this:
